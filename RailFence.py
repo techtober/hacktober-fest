@@ -11,7 +11,7 @@ def Rail_encrypt(pt,d):
     ct = ""
     for i in range(d):
         for j in pt_blocks:
-            ct += i[j]
+            ct += j[i]
 
     return(ct)
     
@@ -28,7 +28,7 @@ def Rail_decrypt(ct, d):
     
     if pt[-1] == "x":
         x_count = 0
-        for i in range(len(pt),1,-1):
+        for i in range(len(pt)-1,0,-1):
             if pt[i] == "x":
                 x_count+=1
         pt = pt[:-(x_count)]
