@@ -64,17 +64,14 @@ def PThandler(pt):
     return(PT)
 
 def CThandler(ct):
-    PT = ct[0]
-    for i in range(1,len(ct)-1):
-        print(ct[i])
-        if ct[i-1] == ct[i+1]:
-            #print(ct[i+1])
-            PT += ct[i+1]
-        else:
-            #print(ct[i])
-            PT += ct[i]
-    PT += ct[-1]
-    return(PT)
+    CTlist = [n for n in ct]
+    for i in range(len(ct)):
+        if ct[i] == "x":
+            CTlist[i] = ""
+    if CTlist[-1] == "x":
+        return("".join(CTlist[:-1]))
+    else:
+        return("".join(CTlist))
     
     
     
